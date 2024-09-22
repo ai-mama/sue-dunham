@@ -1,9 +1,43 @@
----
-layout: base.njk
----
+<!DOCTYPE html>
+<html lang="en">
+  {%- set pageTitle %}
+  {% if title %}{{ title }} | {% endif %}{{ meta.siteName }}{% endset -%}
+  {%- set pageDescription %}
+  {% if description %}{{ description }}
+  {% else %}{{ meta.siteDescription }}
+  {% endif %}{% endset -%}
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="generator" content="{{ eleventy.generator }}"/>
+    <title>{{pageTitle}}</title>
+    <meta
+      name="description"
+      content="{{pageDescription}}"
+/>
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/favicon/apple-touch-icon.png' | url }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/favicon/favicon-32x32.png' | url }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ '/favicon/favicon-16x16.png' | url }}">
+    <link href="{{ '/css/global.css' | url }}" rel="stylesheet"/>
 
+    <script type="text/javascript">
+        // JavaScript to redirect the user to another page
+        function redirectToAnotherPage() {
+            window.location.href = 'https://x.com/MrsSueDunham';
+        }
+        
+        // Call the redirect function as soon as the page loads
+        window.onload = redirectToAnotherPage;
+    </script>
+</head>
 <body class="post">
+    <noscript>
     <main>
-        {{ content | safe }}
+    <h1>Sue Dunham</h1>
+        <p>Find me at:</p>
+        <p><a href="https://x.com/MrsSueDunham">SueDunham.com</a></p>
     </main>
+    </noscript>
 </body>
+</html>
